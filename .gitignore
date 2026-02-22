@@ -1,7 +1,11 @@
 bin/
 obj/
 .vs/
+
 *.db
+*.db-wal
+*.db-shm
 *.sqlite
+
 *.user
 secrets.json
