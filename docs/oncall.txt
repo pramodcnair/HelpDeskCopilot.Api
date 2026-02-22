@@ -1,0 +1,48 @@
+FinTrack Pro - On Call Runbook
+
+Production URL:
+https://app.fintrackpro.com
+
+Monitoring Dashboard:
+https://monitor.fintrackpro.com
+
+Common Incidents:
+
+1. High API Latency
+Symptoms:
+- Response time > 2 seconds
+- Increased timeout errors
+
+Actions:
+- Check Azure App Service CPU usage
+- Restart API instance if CPU > 85%
+- Scale to 3 instances if traffic spike
+
+2. Database Connection Exhausted
+Symptoms:
+- "Timeout expired" errors
+- Spike in 500 responses
+
+Actions:
+- Check active SQL connections
+- Identify long-running queries
+- Kill sessions > 5 minutes
+- Restart service if required
+
+3. Bank Sync Failure (External API)
+Symptoms:
+- Multiple failed sync jobs
+- Webhook failures
+
+Actions:
+- Check bank provider status page
+- Retry failed jobs
+- Notify users if outage > 1 hour
+
+Escalation Matrix:
+Level 1 - On-call engineer
+Level 2 - Platform lead
+Level 3 - CTO
+
+Critical SLA:
+System downtime > 10 minutes must be escalated immediately.
